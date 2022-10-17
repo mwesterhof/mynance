@@ -1,0 +1,83 @@
+<TitleBar>:
+    Button:
+        on_press: app.root.current = 'menu'
+        size_hint_x: 1
+        background_normal: 'data/menu.png'
+        background_down: 'data/menu_active.png'
+    Label:
+        text: f"mYnance - {root.title}"
+        size_hint_x: 10
+    
+<MenuScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint_y: 1
+            Button:
+                size_hint_x: 1
+                background_normal: 'data/menu_active.png'
+            Label:
+                text: "title bar"
+                size_hint_x: 10
+
+        BoxLayout:
+            size_hint_y: 10
+            orientation: 'vertical'
+            Button:
+                text: "title"
+                on_press: root.manager.current = 'title'
+            Button:
+                text: "about"
+                on_press: root.manager.current = 'about'
+            Button:
+                text: "balance"
+                on_press: root.manager.current = 'balance'
+
+<TitleScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        TitleBar:
+            title: "home"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: 10
+            Label:
+                text: "title screen"
+            Label:
+                text: "title screen"
+
+<AboutScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        TitleBar:
+            title: "about"
+
+        Label:
+            size_hint_y: 10
+            text: "about page"
+
+<BalanceScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        TitleBar:
+            title: "balance"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: 10
+
+            Label:
+                text: "balance page"
+                size_hint_y: 1
+
+            BoxLayout:
+                size_hint_y: 10
+                Label:
+                    text: "balance: "
+                Label:
+                    text: f"{app.balance}"
