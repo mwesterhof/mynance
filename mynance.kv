@@ -1,25 +1,38 @@
 <TitleBar>:
+    size_hint_y: None
+    height: 100
     Button:
         on_press: app.root.current = 'menu'
-        size_hint_x: 1
+        width: 100
+        size_hint_x: None
         background_normal: 'data/menu.png'
         background_down: 'data/menu_active.png'
     Label:
         text: f"mYnance - {root.title}"
         size_hint_x: 10
+    Label:
+        width: 100
+        size_hint_x: None
     
 <MenuScreen>:
     BoxLayout:
         orientation: 'vertical'
 
         BoxLayout:
-            size_hint_y: 1
+            size_hint_y: None
+            height: 100
+
             Button:
-                size_hint_x: 1
+                width: 100
+                size_hint_x: None
                 background_normal: 'data/menu_active.png'
+                background_down: 'data/menu_active.png'
             Label:
-                text: "title bar"
+                text: "mYnance - menu"
                 size_hint_x: 10
+            Label:
+                width: 100
+                size_hint_x: None
 
         BoxLayout:
             size_hint_y: 10
@@ -41,13 +54,24 @@
         TitleBar:
             title: "home"
 
-        BoxLayout:
-            orientation: "vertical"
-            size_hint_y: 10
-            Label:
-                text: "title screen"
-            Label:
-                text: "title screen"
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            BoxLayout:
+                size_hint_y: 4
+                orientation: "vertical"
+                Label:
+                    text: "title screen"
+                    height: 1
+                Label:
+                    text: "title screen"
+                    height: 1
+                Label:
+                    text: "title screen"
+                    height: 1
+                Label:
+                    text: "title screen"
+                    height: 1
 
 <AboutScreen>:
     BoxLayout:
@@ -71,13 +95,25 @@
             orientation: "vertical"
             size_hint_y: 10
 
-            Label:
-                text: "balance page"
-                size_hint_y: 1
-
             BoxLayout:
-                size_hint_y: 10
+                size_hint_y: None
                 Label:
                     text: "balance: "
                 Label:
                     text: f"{app.balance}"
+            TextInput:
+                size_hint_y: None
+                height: 300
+                text: "description"
+            BoxLayout:
+                size_hint_y: None
+                Label:
+                    text: "amount: "
+                TextInput:
+                    text: "0"
+                    multiline: False
+                Button:
+                    text: "submit"
+            Label:
+                size_hint_y: None
+                text: ""
