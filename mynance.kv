@@ -1,6 +1,12 @@
 <TitleBar>:
     size_hint_y: None
     height: 100
+    canvas:
+        Color:
+            rgb: (.5, .5, 1)
+        Rectangle:
+            pos: [self.pos[0], self.pos[1] - self.size[1]]
+            size: [self.size[0], 10]
     Button:
         on_press: app.root.current = 'menu'
         width: 100
@@ -8,8 +14,8 @@
         background_normal: 'data/menu.png'
         background_down: 'data/menu_active.png'
     Label:
-        text: f"mYnance - {root.title}"
         size_hint_x: 10
+        text: f"mYnance - {root.title}"
     Label:
         width: 100
         size_hint_x: None
@@ -41,11 +47,11 @@
                 text: "title"
                 on_press: root.manager.current = 'title'
             Button:
-                text: "about"
-                on_press: root.manager.current = 'about'
-            Button:
                 text: "balance"
                 on_press: root.manager.current = 'balance'
+            Button:
+                text: "about"
+                on_press: root.manager.current = 'about'
 
 <TitleScreen>:
     BoxLayout:
@@ -53,25 +59,19 @@
 
         TitleBar:
             title: "home"
-
-        ScrollView:
-            do_scroll_x: False
-            do_scroll_y: True
-            BoxLayout:
-                size_hint_y: 4
-                orientation: "vertical"
-                Label:
-                    text: "title screen"
-                    height: 1
-                Label:
-                    text: "title screen"
-                    height: 1
-                Label:
-                    text: "title screen"
-                    height: 1
-                Label:
-                    text: "title screen"
-                    height: 1
+        Label:
+            text: f"balance: {app.balance}"
+            size_hint_y: None
+            height: 40
+        BoxLayout:
+            size_hint_y: None
+            height: 200
+            orientation: "vertical"
+            Label:
+                text: "title screen"
+                height: 1
+        Label:
+            size_hint_y: 1
 
 <AboutScreen>:
     BoxLayout:
@@ -83,6 +83,9 @@
         Label:
             size_hint_y: 10
             text: "about page"
+        Button:
+            text: "cat"
+            on_press: root.cat()
 
 <BalanceScreen>:
     BoxLayout:
