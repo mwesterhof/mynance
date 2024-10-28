@@ -24,7 +24,7 @@ class AboutScreen(CustomScreen):
         layout.add_widget(AsyncImage(source=url, size_hint_y=10))
 
         self._popup = Popup(
-            title="Cat",
+            title="Marco has sent you a cat",
             content=layout,
             size_hint=(.8, .8)
         )
